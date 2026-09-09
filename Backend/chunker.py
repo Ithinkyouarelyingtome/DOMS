@@ -60,7 +60,8 @@ def calculate_chunk_size(filepath):
     
     return 20 * 1024 * 1024  # fallback for anything bigger than 1GB
 
-filepath = choose_file()
-chunk_paths = split_file(filepath, calculate_chunk_size(filepath), CHUNK_FOLDER)
-rejoin_chunks(chunk_paths, "rejoined_test.pdf")
+if __name__ == "__main__":
+    filepath = choose_file()
+    chunk_paths = split_file(filepath, calculate_chunk_size(filepath), CHUNK_FOLDER)
+    rejoin_chunks(chunk_paths, "rejoined_test.pdf")
 

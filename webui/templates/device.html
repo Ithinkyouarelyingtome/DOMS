@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DOMS — Devices</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <img src="{{ url_for('static', filename='DOMS.png') }}"
+                 alt="DOMS">
+
+            <div>
+                <strong>DOMS</strong>
+                <span>Distributed Storage</span>
+            </div>
+        </div>
+
+
+        <nav class="navigation">
+
+            <a href="/" class="nav-button">
+                <span>⌂</span>
+                Home
+            </a>
+
+            <a href="/storage" class="nav-button">
+                <span>□</span>
+                Files
+            </a>
+
+            <a href="/transfers" class="nav-button">
+                <span>↔</span>
+                Transfers
+            </a>
+
+            <a href="/devices" class="nav-button active">
+                <span>⊡</span>
+                Devices
+            </a>
+
+            <a href="/network" class="nav-button">
+                <span>◎</span>
+                Network
+            </a>
+
+            <a href="/settings" class="nav-button">
+                <span>⚙</span>
+                Settings
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="system-status">
+                <div class="status-dot"></div>
+
+                <div>
+                    <strong>System Online</strong>
+                    <span>All nodes operational</span>
+                </div>
+            </div>
+
+
+            <div class="local-node">
+
+                <div class="node-avatar">
+                    D
+                </div>
+
+                <div>
+                    <strong>Local Node</strong>
+                    <span>This device</span>
+                </div>
+
+                <span class="node-arrow">›</span>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="content">
+
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+
+            <div class="search-box">
+                <span>⌕</span>
+                <input
+                    type="text"
+                    placeholder="Search files, devices, transfers..."
+                >
+            </div>
+
+            <div class="top-actions">
+
+                <button class="icon-button">
+                    ☼
+                </button>
+
+                <button class="icon-button">
+                    ◇
+                </button>
+
+                <div class="profile">
+                    D
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- PAGE HEADER -->
+        <section class="page-header">
+
+            <div>
+                <div class="eyebrow">
+                    DOMS NETWORK
+                </div>
+
+                <h1>Devices.</h1>
+
+                <p>
+                    Manage the devices connected to your mesh.
+                </p>
+            </div>
+
+
+            <button class="primary-button">
+                + Connect Device
+            </button>
+
+        </section>
+
+
+        <!-- DEVICE SUMMARY -->
+        <section class="device-summary">
+
+            <div class="summary-card">
+
+                <span class="summary-label">
+                    CONNECTED
+                </span>
+
+                <strong>
+                    3
+                </strong>
+
+                <p>
+                    Devices online
+                </p>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span class="summary-label">
+                    TOTAL STORAGE
+                </span>
+
+                <strong>
+                    184 GB
+                </strong>
+
+                <p>
+                    Across the mesh
+                </p>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span class="summary-label">
+                    NETWORK
+                </span>
+
+                <strong>
+                    18 ms
+                </strong>
+
+                <p>
+                    Average latency
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- DEVICES -->
+        <section class="devices-section">
+
+            <div class="section-header">
+
+                <div>
+                    <div class="eyebrow">
+                        MESH DEVICES
+                    </div>
+
+                    <h2>Your devices</h2>
+                </div>
+
+                <span class="section-count">
+                    3 online
+                </span>
+
+            </div>
+
+
+            <div class="device-grid">
+
+
+                <!-- NODE 01 -->
+                <article class="device-card">
+
+                    <div class="device-card-top">
+
+                        <div class="device-icon">
+                            D
+                        </div>
+
+                        <span class="online-badge">
+                            <i></i>
+                            Online
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        Node 01
+                    </h3>
+
+                    <p class="device-ip">
+                        192.168.1.101
+                    </p>
+
+
+                    <div class="device-metrics">
+
+                        <div>
+                            <span>Storage</span>
+                            <strong>62 GB</strong>
+                        </div>
+
+                        <div>
+                            <span>Chunks</span>
+                            <strong>128</strong>
+                        </div>
+
+                        <div>
+                            <span>Latency</span>
+                            <strong>12 ms</strong>
+                        </div>
+
+                    </div>
+
+
+                    <button class="device-action">
+                        View device →
+                    </button>
+
+                </article>
+
+
+                <!-- NODE 02 -->
+                <article class="device-card">
+
+                    <div class="device-card-top">
+
+                        <div class="device-icon">
+                            D
+                        </div>
+
+                        <span class="online-badge">
+                            <i></i>
+                            Online
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        Node 02
+                    </h3>
+
+                    <p class="device-ip">
+                        192.168.1.102
+                    </p>
+
+
+                    <div class="device-metrics">
+
+                        <div>
+                            <span>Storage</span>
+                            <strong>71 GB</strong>
+                        </div>
+
+                        <div>
+                            <span>Chunks</span>
+                            <strong>143</strong>
+                        </div>
+
+                        <div>
+                            <span>Latency</span>
+                            <strong>18 ms</strong>
+                        </div>
+
+                    </div>
+
+
+                    <button class="device-action">
+                        View device →
+                    </button>
+
+                </article>
+
+
+                <!-- NODE 03 -->
+                <article class="device-card">
+
+                    <div class="device-card-top">
+
+                        <div class="device-icon">
+                            D
+                        </div>
+
+                        <span class="online-badge">
+                            <i></i>
+                            Online
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        Node 03
+                    </h3>
+
+                    <p class="device-ip">
+                        192.168.1.103
+                    </p>
+
+
+                    <div class="device-metrics">
+
+                        <div>
+                            <span>Storage</span>
+                            <strong>51 GB</strong>
+                        </div>
+
+                        <div>
+                            <span>Chunks</span>
+                            <strong>97</strong>
+                        </div>
+
+                        <div>
+                            <span>Latency</span>
+                            <strong>24 ms</strong>
+                        </div>
+
+                    </div>
+
+
+                    <button class="device-action">
+                        View device →
+                    </button>
+
+                </article>
+
+
+                <!-- CONNECT DEVICE CARD -->
+                <article class="device-card connect-card">
+
+                    <div class="connect-icon">
+                        +
+                    </div>
+
+                    <h3>
+                        Connect a device
+                    </h3>
+
+                    <p>
+                        Add another computer or device
+                        to your DOMS mesh.
+                    </p>
+
+                    <button class="secondary-button">
+                        Connect Device
+                    </button>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- NETWORK INFO -->
+        <section class="info-panel">
+
+            <div>
+
+                <div class="eyebrow">
+                    MESH STATUS
+                </div>
+
+                <h2>
+                    Your network is healthy.
+                </h2>
+
+                <p>
+                    All connected nodes are currently
+                    available for distributed storage and
+                    file transfers.
+                </p>
+
+            </div>
+
+
+            <div class="network-health">
+
+                <div class="health-dot"></div>
+
+                <div>
+                    <strong>Operational</strong>
+                    <span>3 of 3 nodes online</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+</body>
+</html>

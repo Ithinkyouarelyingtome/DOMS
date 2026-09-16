@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DOMS — Distributed Storage</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <!-- BRAND -->
+        <div class="brand">
+
+            <img
+                src="{{ url_for('static', filename='DOMS.png') }}"
+                alt="DOMS Logo"
+                class="brand-logo"
+            >
+
+            <div class="brand-text">
+                <strong>DOMS</strong>
+                <span>Distributed Storage</span>
+            </div>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+        <nav class="navigation">
+
+            <a href="/" class="nav-button active">
+                <span class="nav-icon">⌂</span>
+                <span>Home</span>
+            </a>
+
+            <a href="/storage" class="nav-button">
+                <span class="nav-icon">□</span>
+                <span>Files</span>
+            </a>
+
+            <a href="/transfers" class="nav-button">
+                <span class="nav-icon">↔</span>
+                <span>Transfers</span>
+            </a>
+
+            <a href="/devices" class="nav-button">
+                <span class="nav-icon">▣</span>
+                <span>Devices</span>
+            </a>
+
+            <a href="/network" class="nav-button">
+                <span class="nav-icon">◎</span>
+                <span>Network</span>
+            </a>
+
+            <a href="/settings" class="nav-button">
+                <span>⚙</span>
+                Settings
+            </a>
+
+        </nav>
+
+
+        <!-- SIDEBAR BOTTOM -->
+        <div class="sidebar-bottom">
+
+            <div class="system-status">
+
+                <span class="status-dot"></span>
+
+                <div>
+                    <strong>System Online</strong>
+                    <small>All nodes operational</small>
+                </div>
+
+            </div>
+
+
+            <div class="local-node">
+
+                <div class="node-avatar">
+                    D
+                </div>
+
+                <div>
+                    <strong>Local Node</strong>
+                    <small>This device</small>
+                </div>
+
+                <span class="node-arrow">›</span>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="content">
+
+
+        <!-- =================================================
+             TOP BAR
+        ================================================== -->
+
+        <header class="topbar">
+
+            <div class="search-box">
+
+                <span class="search-icon">⌕</span>
+
+                <input
+                    type="text"
+                    placeholder="Search files, devices, transfers..."
+                >
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <button class="topbar-button" title="Appearance">
+                    ☼
+                </button>
+
+                <button class="topbar-button" title="Notifications">
+                    ♢
+                </button>
+
+                <button class="profile-button">
+                    D
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             HERO
+        ================================================== -->
+
+        <section class="hero">
+
+            <div class="hero-text">
+
+                <p class="eyebrow">
+                    DISTRIBUTED OFFLINE MESH STORAGE
+                </p>
+
+                <h1>
+                    Your data.<br>
+                    Your network.
+                </h1>
+
+                <p class="hero-description">
+                    Store, share, stream and access your files
+                    across all your devices.
+                </p>
+
+            </div>
+
+
+            <div class="hero-message">
+
+                <span>No Cloud.</span>
+                <span>No Limits.</span>
+                <strong>Just Your Network.</strong>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PRIMARY ACTIONS
+        ================================================== -->
+
+        <section class="action-grid">
+
+
+            <!-- A — FILE TRANSFER -->
+
+            <a href="/transfers"
+               class="action-card transfer-card">
+
+                <span class="action-letter">
+                    A
+                </span>
+
+                <div class="action-icon">
+                    ↔
+                </div>
+
+                <h2>
+                    File Transfer
+                </h2>
+
+                <p>
+                    Send and receive files across
+                    your mesh network.
+                </p>
+
+                <span class="action-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+
+            <!-- B — DOWNLOAD & PLAY -->
+
+            <a href="/storage"
+               class="action-card play-card">
+
+                <span class="action-letter">
+                    B
+                </span>
+
+                <div class="action-icon">
+                    ▶
+                </div>
+
+                <h2>
+                    Download &amp; Play
+                </h2>
+
+                <p>
+                    Download and stream media
+                    directly from your devices.
+                </p>
+
+                <span class="action-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+
+            <!-- C — CONNECT DEVICE -->
+
+            <a href="/devices"
+               class="action-card action-connect-card">
+
+                <span class="action-letter">
+                    C
+                </span>
+
+                <div class="action-icon">
+                    ▣
+                </div>
+
+                <h2>
+                    Connect Device
+                </h2>
+
+                <p>
+                    Pair and connect new devices
+                    to your DOMS network.
+                </p>
+
+                <span class="action-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+
+            <!-- D — SERVER -->
+
+            <a href="#"
+               class="action-card server-card">
+
+                <span class="action-letter">
+                    D
+                </span>
+
+                <div class="action-icon">
+                    ◉
+                </div>
+
+                <h2>
+                    Server
+                </h2>
+
+                <p>
+                    Manage your local server
+                    and network settings.
+                </p>
+
+                <span class="action-arrow">
+                    →
+                </span>
+
+            </a>
+
+        </section>
+
+
+
+        <!-- =================================================
+             DASHBOARD INFORMATION
+        ================================================== -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- =============================================
+                 STORAGE
+            ============================================== -->
+
+            <div class="panel storage-panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <span class="panel-label">
+                            STORAGE OVERVIEW
+                        </span>
+
+                        <h2>
+                            Your Storage
+                        </h2>
+                    </div>
+
+                    <a href="/storage"
+                       class="panel-link">
+                        View files →
+                    </a>
+
+                </div>
+
+
+                <div class="storage-content">
+
+                    <div class="storage-circle">
+
+                        <div>
+                            <strong>37%</strong>
+                            <span>used</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="storage-details">
+
+                        <div class="storage-number">
+                            184 GB
+                            <span>/ 500 GB</span>
+                        </div>
+
+                        <p>
+                            316 GB available
+                        </p>
+
+
+                        <div class="storage-progress">
+
+                            <div
+                                class="storage-progress-fill"
+                                style="width: 37%;">
+                            </div>
+
+                        </div>
+
+
+                        <div class="storage-legend">
+
+                            <div>
+                                <span class="legend-dot used"></span>
+                                Used Space
+                                <strong>184 GB</strong>
+                            </div>
+
+                            <div>
+                                <span class="legend-dot free"></span>
+                                Free Space
+                                <strong>316 GB</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =============================================
+                 NETWORK
+            ============================================== -->
+
+            <div class="panel network-panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <span class="panel-label">
+                            NETWORK OVERVIEW
+                        </span>
+
+                        <h2>
+                            Mesh Network
+                        </h2>
+                    </div>
+
+                    <a href="/network"
+                       class="panel-link">
+                        View network →
+                    </a>
+
+                </div>
+
+
+                <div class="network-status">
+
+                    <span class="status-dot"></span>
+
+                    <span>
+                        3 devices online
+                    </span>
+
+                </div>
+
+
+                <div class="mesh">
+
+                    <div class="mesh-center">
+                        <strong>3</strong>
+                        <span>Devices</span>
+                    </div>
+
+
+                    <div class="mesh-node mesh-node-1">
+
+                        <span class="mesh-device-icon">
+                            ▣
+                        </span>
+
+                        <strong>Node 01</strong>
+
+                        <small>
+                            192.168.1.101
+                        </small>
+
+                    </div>
+
+
+                    <div class="mesh-node mesh-node-2">
+
+                        <span class="mesh-device-icon">
+                            ▣
+                        </span>
+
+                        <strong>Node 02</strong>
+
+                        <small>
+                            192.168.1.102
+                        </small>
+
+                    </div>
+
+
+                    <div class="mesh-node mesh-node-3">
+
+                        <span class="mesh-device-icon">
+                            ▣
+                        </span>
+
+                        <strong>Node 03</strong>
+
+                        <small>
+                            192.168.1.103
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =============================================
+                 RECENT ACTIVITY
+            ============================================== -->
+
+            <div class="panel activity-panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <span class="panel-label">
+                            ACTIVITY
+                        </span>
+
+                        <h2>
+                            Recent Activity
+                        </h2>
+                    </div>
+
+                    <a href="/transfers"
+                       class="panel-link">
+                        See all →
+                    </a>
+
+                </div>
+
+
+                <div class="activity-list">
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-icon file">
+                            □
+                        </div>
+
+                        <div class="activity-info">
+
+                            <strong>
+                                movie.mkv
+                            </strong>
+
+                            <span>
+                                Downloaded from Node 02
+                            </span>
+
+                        </div>
+
+                        <span class="activity-size">
+                            2.4 GB
+                        </span>
+
+                        <span class="activity-status completed">
+                            Completed
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-icon archive">
+                            ▣
+                        </div>
+
+                        <div class="activity-info">
+
+                            <strong>
+                                project.zip
+                            </strong>
+
+                            <span>
+                                Sent to Node 03
+                            </span>
+
+                        </div>
+
+                        <span class="activity-size">
+                            512 MB
+                        </span>
+
+                        <span class="activity-status completed">
+                            Completed
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-icon music">
+                            ♪
+                        </div>
+
+                        <div class="activity-info">
+
+                            <strong>
+                                song.mp3
+                            </strong>
+
+                            <span>
+                                Streaming from Node 01
+                            </span>
+
+                        </div>
+
+                        <span class="activity-size">
+                            8 MB
+                        </span>
+
+                        <span class="activity-status playing">
+                            Playing
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-icon image">
+                            ▧
+                        </div>
+
+                        <div class="activity-info">
+
+                            <strong>
+                                image.png
+                            </strong>
+
+                            <span>
+                                Sent to Node 03
+                            </span>
+
+                        </div>
+
+                        <span class="activity-size">
+                            16 MB
+                        </span>
+
+                        <span class="activity-status completed">
+                            Completed
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =============================================
+                 ACTIVE TRANSFERS
+            ============================================== -->
+
+            <div class="panel transfers-panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <span class="panel-label">
+                            TRANSFERS
+                        </span>
+
+                        <h2>
+                            Active Transfers
+                        </h2>
+                    </div>
+
+                    <a href="/transfers"
+                       class="panel-link">
+                        View all →
+                    </a>
+
+                </div>
+
+
+                <div class="transfer-item">
+
+
+                    <div class="transfer-icon">
+                        □
+                    </div>
+
+
+                    <div class="transfer-info">
+
+                        <strong>
+                            backup.zip
+                        </strong>
+
+                        <span>
+                            Node 01 → Node 02
+                        </span>
+
+                        <div class="transfer-progress">
+
+                            <div
+                                class="transfer-progress-fill"
+                                style="width: 68%;">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="transfer-meta">
+
+                        <strong>
+                            68%
+                        </strong>
+
+                        <span>
+                            28 MB/s
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="transfer-item">
+
+
+                    <div class="transfer-icon purple">
+                        ▶
+                    </div>
+
+
+                    <div class="transfer-info">
+
+                        <strong>
+                            video.mp4
+                        </strong>
+
+                        <span>
+                            Node 03 → Local
+                        </span>
+
+                        <div class="transfer-progress">
+
+                            <div
+                                class="transfer-progress-fill purple-fill"
+                                style="width: 34%;">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="transfer-meta">
+
+                        <strong>
+                            34%
+                        </strong>
+
+                        <span>
+                            26 MB/s
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =============================================
+                 CONNECTED DEVICES
+            ============================================== -->
+
+            <div class="panel connected-panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <span class="panel-label">
+                            DEVICES
+                        </span>
+
+                        <h2>
+                            Connected Devices
+                        </h2>
+                    </div>
+
+                    <a href="/devices"
+                       class="panel-link">
+                        Add device +
+                    </a>
+
+                </div>
+
+
+                <div class="connected-list">
+
+
+                    <div class="connected-device">
+
+                        <div class="device-icon">
+                            ▣
+                        </div>
+
+                        <div class="connected-info">
+
+                            <strong>
+                                This Device
+                            </strong>
+
+                            <span>
+                                192.168.1.100
+                            </span>
+
+                        </div>
+
+                        <span class="online-status">
+                            <span class="status-dot"></span>
+                            Online
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="connected-device">
+
+                        <div class="device-icon">
+                            ▣
+                        </div>
+
+                        <div class="connected-info">
+
+                            <strong>
+                                Node 01
+                            </strong>
+
+                            <span>
+                                192.168.1.101
+                            </span>
+
+                        </div>
+
+                        <span class="online-status">
+                            <span class="status-dot"></span>
+                            Online
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="connected-device">
+
+                        <div class="device-icon">
+                            ▣
+                        </div>
+
+                        <div class="connected-info">
+
+                            <strong>
+                                Node 02
+                            </strong>
+
+                            <span>
+                                192.168.1.102
+                            </span>
+
+                        </div>
+
+                        <span class="online-status">
+                            <span class="status-dot"></span>
+                            Online
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="connected-device">
+
+                        <div class="device-icon">
+                            ▣
+                        </div>
+
+                        <div class="connected-info">
+
+                            <strong>
+                                Node 03
+                            </strong>
+
+                            <span>
+                                192.168.1.103
+                            </span>
+
+                        </div>
+
+                        <span class="online-status">
+                            <span class="status-dot"></span>
+                            Online
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =============================================
+                 BOTTOM BANNER
+            ============================================== -->
+
+            <div class="future-banner">
+
+                <div>
+
+                    <span class="banner-label">
+                        DISTRIBUTED. PRIVATE. YOURS.
+                    </span>
+
+                    <h2>
+                        A more open
+                        storage future.
+                    </h2>
+
+                    <p>
+                        Your devices. Your data.
+                        Your network.
+                    </p>
+
+                </div>
+
+
+                <button class="banner-button">
+                    Learn more →
+                </button>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+
+</html>

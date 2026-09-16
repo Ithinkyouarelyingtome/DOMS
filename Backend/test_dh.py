@@ -1,0 +1,6 @@
+from crypto import generate_dh_parameters,load_dh_parameters
+from cryptography.hazmat.primitives import serialization
+from config import DH_PARAMETERS_PEM
+
+
+load_dh_parameters(DH_PARAMETERS_PEM)

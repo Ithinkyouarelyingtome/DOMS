@@ -1,423 +1,161 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block title %}Settings{% endblock %}
 
-    <title>DOMS - Settings</title>
+{% block content %}
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
-</head>
-
-<body>
-
-<div class="app">
-
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-
-        <div class="logo">
-            <img src="{{ url_for('static', filename='DOMS.png') }}"
-                 alt="DOMS">
+    <section class="page-header">
+        <div>
+            <h1>Settings</h1>
+            <p>Configure your DOMS node and storage preferences</p>
         </div>
-
-        <p>Distributed Storage</p>
-
-        <nav class="navigation">
-
-            <a href="/" class="nav-button">
-                Dashboard
-            </a>
-
-            <a href="/storage" class="nav-button">
-                Storage
-            </a>
-
-            <a href="/devices" class="nav-button">
-                Devices
-            </a>
-
-            <a href="/transfers" class="nav-button">
-                Transfers
-            </a>
-
-            <a href="/network" class="nav-button">
-                Network
-            </a>
-
-            <a href="/settings" class="nav-button active">
-                Settings
-            </a>
-
-        </nav>
-
-    </aside>
+    </section>
 
 
-    <!-- MAIN -->
-    <main class="content">
+    <div class="panel settings-panel">
+        <div class="settings-section">
 
-        <h1>Settings</h1>
-
-        <p>Configure your DOMS node and storage preferences</p>
-
-
-        <!-- NODE SETTINGS -->
-        <div class="panel settings-panel">
-
-            <div class="settings-section">
-
-                <div class="settings-section-header">
-
-                    <div class="settings-section-title">
-
-                        <span class="settings-label">
-                            NODE
-                        </span>
-
-                        <h2>
-                            Local Device
-                        </h2>
-
-                    </div>
-
-                    <div class="settings-status">
-                        ONLINE
-                    </div>
-
+            <div class="settings-section-header">
+                <div class="settings-section-title">
+                    <span class="settings-label">NODE</span>
+                    <h2>Local Device</h2>
                 </div>
+                <div class="settings-status">ONLINE</div>
+            </div>
 
-
-                <!-- NODE NAME -->
-                <div class="setting-row">
-
-                    <div class="setting-info">
-
-                        <span class="setting-name">
-                            Node name
-                        </span>
-
-                        <span class="setting-description">
-                            How this device appears on the mesh
-                        </span>
-
-                    </div>
-
-                    <input
-                        class="setting-input"
-                        type="text"
-                        value="Local Node"
-                    >
-
+            <div class="setting-row">
+                <div class="setting-info">
+                    <span class="setting-name">Node name</span>
+                    <span class="setting-description">How this device appears on the mesh</span>
                 </div>
+                <input class="setting-input" type="text" value="Local Node">
+            </div>
 
-
-                <!-- NODE ADDRESS -->
-                <div class="setting-row">
-
-                    <div class="setting-info">
-
-                        <span class="setting-name">
-                            Node address
-                        </span>
-
-                        <span class="setting-description">
-                            Local network address
-                        </span>
-
-                    </div>
-
-                    <span class="setting-value">
-                        192.168.1.100
-                    </span>
-
+            <div class="setting-row">
+                <div class="setting-info">
+                    <span class="setting-name">Node address</span>
+                    <span class="setting-description">Local network address</span>
                 </div>
+                <span class="setting-value">192.168.1.100</span>
+            </div>
 
-
-                <!-- NODE STATUS -->
-                <div class="setting-row">
-
-                    <div class="setting-info">
-
-                        <span class="setting-name">
-                            Node status
-                        </span>
-
-                        <span class="setting-description">
-                            Current availability on the mesh
-                        </span>
-
-                    </div>
-
-                    <span class="settings-status">
-                        ONLINE
-                    </span>
-
+            <div class="setting-row">
+                <div class="setting-info">
+                    <span class="setting-name">Node status</span>
+                    <span class="setting-description">Current availability on the mesh</span>
                 </div>
-
+                <span class="settings-status">ONLINE</span>
             </div>
 
         </div>
+    </div>
 
 
-        <!-- STORAGE SETTINGS -->
-        <div class="panel settings-panel">
+    <div class="panel settings-panel">
+        <div class="settings-section">
 
-            <div class="settings-section">
-
-                <div class="settings-section-header">
-
-                    <div class="settings-section-title">
-
-                        <span class="settings-label">
-                            STORAGE
-                        </span>
-
-                        <h2>
-                            Storage Preferences
-                        </h2>
-
-                    </div>
-
+            <div class="settings-section-header">
+                <div class="settings-section-title">
+                    <span class="settings-label">STORAGE</span>
+                    <h2>Storage Preferences</h2>
                 </div>
+            </div>
 
-
-                <!-- STORAGE LIMIT -->
-                <div class="setting-row">
-
-                    <div class="setting-info">
-
-                        <span class="setting-name">
-                            Storage limit
-                        </span>
-
-                        <span class="setting-description">
-                            Maximum space DOMS can use
-                        </span>
-
-                    </div>
-
-                    <span class="setting-value">
-                        500 GB
-                    </span>
-
+            <div class="setting-row">
+                <div class="setting-info">
+                    <span class="setting-name">Storage limit</span>
+                    <span class="setting-description">Maximum space DOMS can use</span>
                 </div>
+                <span class="setting-value">500 GB</span>
+            </div>
 
-
-                <!-- REPLICATION -->
-                <div class="setting-row">
-
-                    <div class="setting-info">
-
-                        <span class="setting-name">
-                            Target replication
-                        </span>
-
-                        <span class="setting-description">
-                            Number of copies maintained across nodes
-                        </span>
-
-                    </div>
-
-                    <select class="setting-select">
-
-                        <option value="1">
-                            1×
-                        </option>
-
-                        <option value="2" selected>
-                            2×
-                        </option>
-
-                        <option value="3">
-                            3×
-                        </option>
-
-                    </select>
-
+            <div class="setting-row">
+                <div class="setting-info">
+                    <span class="setting-name">Target replication</span>
+                    <span class="setting-description">Number of copies maintained across nodes</span>
                 </div>
+                <select class="setting-select">
+                    <option value="1">1×</option>
+                    <option value="2" selected>2×</option>
+                    <option value="3">3×</option>
+                </select>
+            </div>
 
-
-                <!-- AUTOMATIC REPLICATION -->
-                <div class="setting-row">
-
-                    <div class="setting-info">
-
-                        <span class="setting-name">
-                            Automatic replication
-                        </span>
-
-                        <span class="setting-description">
-                            Keep files replicated when nodes are available
-                        </span>
-
-                    </div>
-
-                    <label class="toggle">
-
-                        <input
-                            type="checkbox"
-                            checked
-                        >
-
-                        <span class="toggle-slider"></span>
-
-                    </label>
-
+            <div class="setting-row">
+                <div class="setting-info">
+                    <span class="setting-name">Automatic replication</span>
+                    <span class="setting-description">Keep files replicated when nodes are available</span>
                 </div>
+                <label class="toggle">
+                    <input type="checkbox" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
 
-
-                <!-- SAVE -->
-                <div class="settings-actions">
-
-                    <button class="settings-button">
-                        Save Changes
-                    </button>
-
-                </div>
-
+            <div class="settings-actions">
+                <button class="settings-button">Save Changes</button>
             </div>
 
         </div>
+    </div>
 
 
-        <!-- NETWORK SETTINGS -->
-        <div class="panel settings-panel">
+    <div class="panel settings-panel">
+        <div class="settings-section">
 
-            <div class="settings-section">
-
-                <div class="settings-section-header">
-
-                    <div class="settings-section-title">
-
-                        <span class="settings-label">
-                            NETWORK
-                        </span>
-
-                        <h2>
-                            Mesh Preferences
-                        </h2>
-
-                    </div>
-
+            <div class="settings-section-header">
+                <div class="settings-section-title">
+                    <span class="settings-label">NETWORK</span>
+                    <h2>Mesh Preferences</h2>
                 </div>
+            </div>
 
-
-                <div class="setting-row">
-
-                    <div class="setting-info">
-
-                        <span class="setting-name">
-                            Network discovery
-                        </span>
-
-                        <span class="setting-description">
-                            Allow DOMS to discover nearby nodes
-                        </span>
-
-                    </div>
-
-                    <label class="toggle">
-
-                        <input
-                            type="checkbox"
-                            checked
-                        >
-
-                        <span class="toggle-slider"></span>
-
-                    </label>
-
+            <div class="setting-row">
+                <div class="setting-info">
+                    <span class="setting-name">Network discovery</span>
+                    <span class="setting-description">Allow DOMS to discover nearby nodes</span>
                 </div>
+                <label class="toggle">
+                    <input type="checkbox" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
 
-
-                <div class="setting-row">
-
-                    <div class="setting-info">
-
-                        <span class="setting-name">
-                            Connection mode
-                        </span>
-
-                        <span class="setting-description">
-                            How this node communicates with the mesh
-                        </span>
-
-                    </div>
-
-                    <select class="setting-select">
-
-                        <option selected>
-                            Automatic
-                        </option>
-
-                        <option>
-                            Local Network
-                        </option>
-
-                        <option>
-                            Direct Connection
-                        </option>
-
-                    </select>
-
+            <div class="setting-row">
+                <div class="setting-info">
+                    <span class="setting-name">Connection mode</span>
+                    <span class="setting-description">How this node communicates with the mesh</span>
                 </div>
-
+                <select class="setting-select">
+                    <option selected>Automatic</option>
+                    <option>Local Network</option>
+                    <option>Direct Connection</option>
+                </select>
             </div>
 
         </div>
+    </div>
 
 
-        <!-- DANGER ZONE -->
-        <div class="panel settings-panel settings-danger">
+    <div class="panel settings-panel settings-danger">
+        <div class="settings-section">
 
-            <div class="settings-section">
-
-                <div class="settings-section-header">
-
-                    <div class="settings-section-title">
-
-                        <span class="settings-label">
-                            ADVANCED
-                        </span>
-
-                        <h2>
-                            Reset Node
-                        </h2>
-
-                    </div>
-
+            <div class="settings-section-header">
+                <div class="settings-section-title">
+                    <span class="settings-label">ADVANCED</span>
+                    <h2>Reset Node</h2>
                 </div>
+            </div>
 
-                <div class="setting-row">
-
-                    <div class="setting-info">
-
-                        <span class="setting-name">
-                            Reset local configuration
-                        </span>
-
-                        <span class="setting-description">
-                            Reset DOMS settings on this device
-                        </span>
-
-                    </div>
-
-                    <button class="danger-button">
-                        Reset Settings
-                    </button>
-
+            <div class="setting-row">
+                <div class="setting-info">
+                    <span class="setting-name">Reset local configuration</span>
+                    <span class="setting-description">Reset DOMS settings on this device</span>
                 </div>
-
+                <button class="danger-button">Reset Settings</button>
             </div>
 
         </div>
+    </div>
 
-    </main>
-
-</div>
-
-</body>
-</html>
+{% endblock %}

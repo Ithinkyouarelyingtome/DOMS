@@ -811,8 +811,8 @@ img {
     background: #FEF1F9;
 }
 
-.connect-card {
-    background: #F97316;
+.action-connect-card {
+    background: #FDF3F0;
 }
 
 .server-card {
@@ -845,7 +845,7 @@ img {
     color: var(--purple);
 }
 
-.connect-card .action-icon {
+.action-connect-card .action-icon {
     color: var(--green);
 }
 

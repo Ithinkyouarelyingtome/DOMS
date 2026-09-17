@@ -1,573 +1,173 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block title %}Transfers{% endblock %}
 
-    <title>DOMS — Transfers</title>
+{% block content %}
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
-</head>
+    <section class="page-header">
+        <div>
+            <span class="eyebrow">DOMS NETWORK</span>
+            <h1>Transfers.</h1>
+            <p>Move files between devices across your mesh.</p>
+        </div>
+        <button class="primary-button">+ New Transfer</button>
+    </section>
 
-<body>
 
-<div class="app">
+    <section class="transfer-summary">
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
+        <div class="summary-box">
+            <span class="card-label">ACTIVE</span>
+            <strong>2</strong>
+            <small>Running now</small>
+        </div>
 
-        <div class="brand">
+        <div class="summary-box">
+            <span class="card-label">COMPLETED</span>
+            <strong>24</strong>
+            <small>Total transfers</small>
+        </div>
 
-            <img src="{{ url_for('static', filename='DOMS.png') }}"
-                 alt="DOMS">
+        <div class="summary-box">
+            <span class="card-label">DATA TRANSFERRED</span>
+            <strong>8.4 GB</strong>
+            <small>Across the network</small>
+        </div>
 
+        <div class="summary-box">
+            <span class="card-label">AVERAGE SPEED</span>
+            <strong>42 MB/s</strong>
+            <small>Current network average</small>
+        </div>
+
+    </section>
+
+
+    <section class="transfers-card">
+
+        <div class="section-header">
             <div>
-                <strong>DOMS</strong>
-                <span>Distributed Storage</span>
+                <span class="card-label">ACTIVE TRANSFERS</span>
+                <h2>In progress</h2>
+            </div>
+            <span class="file-count">2 running</span>
+        </div>
+
+        <div class="transfer">
+
+            <div class="transfer-top">
+                <div class="transfer-file">
+                    <div class="transfer-file-icon pdf">PDF</div>
+                    <div>
+                        <strong>example.pdf</strong>
+                        <span>Node 01 → Node 02</span>
+                    </div>
+                </div>
+                <div class="transfer-percentage">68%</div>
+            </div>
+
+            <div class="transfer-bar">
+                <div class="transfer-bar-used" style="width: 68%;"></div>
+            </div>
+
+            <div class="transfer-info">
+                <span>28.6 MB / 42 MB</span>
+                <span>38 MB/s</span>
+                <span>4 sec remaining</span>
             </div>
 
         </div>
 
+        <div class="transfer">
 
-        <nav class="navigation">
-
-            <a href="/" class="nav-button">
-                <span class="nav-icon">⌂</span>
-                Home
-            </a>
-
-            <a href="/storage" class="nav-button">
-                <span class="nav-icon">□</span>
-                Files
-            </a>
-
-            <a href="/transfers" class="nav-button active">
-                <span class="nav-icon">↔</span>
-                Transfers
-            </a>
-
-            <a href="/devices" class="nav-button">
-                <span class="nav-icon">▣</span>
-                Devices
-            </a>
-
-            <a href="/network" class="nav-button">
-                <span class="nav-icon">◎</span>
-                Network
-            </a>
-
-            <a href="/settings" class="nav-button">
-                <span class="nav-icon">⚙</span>
-                Settings
-            </a>
-
-        </nav>
-
-
-        <div class="sidebar-bottom">
-
-            <div class="system-status">
-
-                <span class="status-dot"></span>
-
-                <div>
-                    <strong>System Online</strong>
-                    <span>All nodes operational</span>
+            <div class="transfer-top">
+                <div class="transfer-file">
+                    <div class="transfer-file-icon image">IMG</div>
+                    <div>
+                        <strong>photo.jpg</strong>
+                        <span>Node 03 → Local Device</span>
+                    </div>
                 </div>
-
+                <div class="transfer-percentage">34%</div>
             </div>
 
+            <div class="transfer-bar">
+                <div class="transfer-bar-used" style="width: 34%;"></div>
+            </div>
 
-            <div class="local-node">
-
-                <div class="node-avatar">
-                    D
-                </div>
-
-                <div>
-                    <strong>Local Node</strong>
-                    <span>This device</span>
-                </div>
-
-                <span class="node-arrow">›</span>
-
+            <div class="transfer-info">
+                <span>4.1 MB / 12 MB</span>
+                <span>26 MB/s</span>
+                <span>7 sec remaining</span>
             </div>
 
         </div>
 
-    </aside>
+    </section>
 
 
-    <!-- MAIN CONTENT -->
-    <main class="content">
+    <section class="transfers-card">
 
-        <!-- TOP BAR -->
-
-        <header class="topbar">
-
-            <div class="search-box">
-
-                <span>⌕</span>
-
-                <input
-                    type="text"
-                    placeholder="Search files, devices, transfers..."
-                >
-
-            </div>
-
-
-            <div class="top-actions">
-
-                <button>☼</button>
-                <button>◊</button>
-
-                <div class="profile">
-                    D
-                </div>
-
-            </div>
-
-        </header>
-
-
-        <!-- PAGE HEADER -->
-
-        <section class="page-header">
-
+        <div class="section-header">
             <div>
+                <span class="card-label">TRANSFER HISTORY</span>
+                <h2>Recent transfers</h2>
+            </div>
+            <button class="text-button">View all →</button>
+        </div>
 
-                <span class="eyebrow">
-                    DOMS NETWORK
-                </span>
+        <div class="history-list">
 
-                <h1>Transfers.</h1>
-
-                <p>
-                    Move files between devices across your mesh.
-                </p>
-
+            <div class="history-row">
+                <div class="history-file">
+                    <div class="history-icon">ZIP</div>
+                    <div>
+                        <strong>backup.zip</strong>
+                        <span>Node 01 → Node 03</span>
+                    </div>
+                </div>
+                <span>2.4 GB</span>
+                <span class="success">● Completed</span>
             </div>
 
-
-            <button class="primary-button">
-                + New Transfer
-            </button>
-
-        </section>
-
-
-        <!-- SUMMARY -->
-
-        <section class="transfer-summary">
-
-            <div class="summary-box">
-
-                <span class="card-label">
-                    ACTIVE
-                </span>
-
-                <strong>
-                    2
-                </strong>
-
-                <small>
-                    Running now
-                </small>
-
+            <div class="history-row">
+                <div class="history-file">
+                    <div class="history-icon pdf">PDF</div>
+                    <div>
+                        <strong>document.pdf</strong>
+                        <span>Node 02 → Node 01</span>
+                    </div>
+                </div>
+                <span>84 MB</span>
+                <span class="success">● Completed</span>
             </div>
 
-
-            <div class="summary-box">
-
-                <span class="card-label">
-                    COMPLETED
-                </span>
-
-                <strong>
-                    24
-                </strong>
-
-                <small>
-                    Total transfers
-                </small>
-
+            <div class="history-row">
+                <div class="history-file">
+                    <div class="history-icon image">IMG</div>
+                    <div>
+                        <strong>image.png</strong>
+                        <span>Node 03 → Node 02</span>
+                    </div>
+                </div>
+                <span>16 MB</span>
+                <span class="success">● Completed</span>
             </div>
 
-
-            <div class="summary-box">
-
-                <span class="card-label">
-                    DATA TRANSFERRED
-                </span>
-
-                <strong>
-                    8.4 GB
-                </strong>
-
-                <small>
-                    Across the network
-                </small>
-
+            <div class="history-row">
+                <div class="history-file">
+                    <div class="history-icon">CSV</div>
+                    <div>
+                        <strong>dataset.csv</strong>
+                        <span>Node 01 → Node 02</span>
+                    </div>
+                </div>
+                <span>512 MB</span>
+                <span class="success">● Completed</span>
             </div>
 
+        </div>
 
-            <div class="summary-box">
+    </section>
 
-                <span class="card-label">
-                    AVERAGE SPEED
-                </span>
-
-                <strong>
-                    42 MB/s
-                </strong>
-
-                <small>
-                    Current network average
-                </small>
-
-            </div>
-
-        </section>
-
-
-        <!-- ACTIVE TRANSFERS -->
-
-        <section class="transfers-card">
-
-            <div class="section-header">
-
-                <div>
-
-                    <span class="card-label">
-                        ACTIVE TRANSFERS
-                    </span>
-
-                    <h2>
-                        In progress
-                    </h2>
-
-                </div>
-
-                <span class="file-count">
-                    2 running
-                </span>
-
-            </div>
-
-
-            <!-- TRANSFER 1 -->
-
-            <div class="transfer-item">
-
-                <div class="transfer-heading">
-
-                    <div class="transfer-file">
-
-                        <div class="transfer-file-icon pdf">
-                            PDF
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                example.pdf
-                            </strong>
-
-                            <span>
-                                Node 01 → Node 02
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="transfer-percentage">
-                        68%
-                    </div>
-
-                </div>
-
-
-                <div class="transfer-bar">
-
-                    <div
-                        class="transfer-bar-used"
-                        style="width: 68%;">
-                    </div>
-
-                </div>
-
-
-                <div class="transfer-info">
-
-                    <span>
-                        28.6 MB / 42 MB
-                    </span>
-
-                    <span>
-                        38 MB/s
-                    </span>
-
-                    <span>
-                        4 sec remaining
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <!-- TRANSFER 2 -->
-
-            <div class="transfer-item">
-
-                <div class="transfer-heading">
-
-                    <div class="transfer-file">
-
-                        <div class="transfer-file-icon image">
-                            IMG
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                photo.jpg
-                            </strong>
-
-                            <span>
-                                Node 03 → Local Device
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="transfer-percentage">
-                        34%
-                    </div>
-
-                </div>
-
-
-                <div class="transfer-bar">
-
-                    <div
-                        class="transfer-bar-used"
-                        style="width: 34%;">
-                    </div>
-
-                </div>
-
-
-                <div class="transfer-info">
-
-                    <span>
-                        4.1 MB / 12 MB
-                    </span>
-
-                    <span>
-                        26 MB/s
-                    </span>
-
-                    <span>
-                        7 sec remaining
-                    </span>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- TRANSFER HISTORY -->
-
-        <section class="transfers-card">
-
-            <div class="section-header">
-
-                <div>
-
-                    <span class="card-label">
-                        TRANSFER HISTORY
-                    </span>
-
-                    <h2>
-                        Recent transfers
-                    </h2>
-
-                </div>
-
-                <button class="text-button">
-                    View all →
-                </button>
-
-            </div>
-
-
-            <div class="history-list">
-
-
-                <!-- BACKUP -->
-
-                <div class="history-item">
-
-                    <div class="history-file">
-
-                        <div class="history-icon">
-                            ZIP
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                backup.zip
-                            </strong>
-
-                            <span>
-                                Node 01 → Node 03
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <span>
-                        2.4 GB
-                    </span>
-
-
-                    <span class="completed">
-                        ● Completed
-                    </span>
-
-                </div>
-
-
-                <!-- DOCUMENT -->
-
-                <div class="history-item">
-
-                    <div class="history-file">
-
-                        <div class="history-icon">
-                            PDF
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                document.pdf
-                            </strong>
-
-                            <span>
-                                Node 02 → Node 01
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <span>
-                        84 MB
-                    </span>
-
-
-                    <span class="completed">
-                        ● Completed
-                    </span>
-
-                </div>
-
-
-                <!-- IMAGE -->
-
-                <div class="history-item">
-
-                    <div class="history-file">
-
-                        <div class="history-icon">
-                            IMG
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                image.png
-                            </strong>
-
-                            <span>
-                                Node 03 → Node 02
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <span>
-                        16 MB
-                    </span>
-
-
-                    <span class="completed">
-                        ● Completed
-                    </span>
-
-                </div>
-
-
-                <!-- DATASET -->
-
-                <div class="history-item">
-
-                    <div class="history-file">
-
-                        <div class="history-icon">
-                            CSV
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                dataset.csv
-                            </strong>
-
-                            <span>
-                                Node 01 → Node 02
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <span>
-                        512 MB
-                    </span>
-
-
-                    <span class="completed">
-                        ● Completed
-                    </span>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-</div>
-
-</body>
-</html>
+{% endblock %}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DOMS — {% block title %}Distributed Storage{% endblock %}</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- =====================================================
+         SIDEBAR — defined ONCE, every page inherits this
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <img
+                src="{{ url_for('static', filename='DOMS.png') }}"
+                alt="DOMS Logo"
+                class="brand-logo"
+            >
+
+            <div class="brand-text">
+                <strong>DOMS</strong>
+                <span>Distributed Storage</span>
+            </div>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <a href="/" class="nav-button {% if active_page == 'home' %}active{% endif %}">
+                <span class="nav-icon">⌂</span>
+                <span>Home</span>
+            </a>
+
+            <a href="/storage" class="nav-button {% if active_page == 'storage' %}active{% endif %}">
+                <span class="nav-icon">□</span>
+                <span>Files</span>
+            </a>
+
+            <a href="/transfers" class="nav-button {% if active_page == 'transfers' %}active{% endif %}">
+                <span class="nav-icon">↔</span>
+                <span>Transfers</span>
+            </a>
+
+            <a href="/devices" class="nav-button {% if active_page == 'devices' %}active{% endif %}">
+                <span class="nav-icon">▣</span>
+                <span>Devices</span>
+            </a>
+
+            <a href="/network" class="nav-button {% if active_page == 'network' %}active{% endif %}">
+                <span class="nav-icon">◎</span>
+                <span>Network</span>
+            </a>
+
+            <a href="/settings" class="nav-button {% if active_page == 'settings' %}active{% endif %}">
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="system-status">
+
+                <span class="status-dot"></span>
+
+                <div>
+                    <strong>System Online</strong>
+                    <small>All nodes operational</small>
+                </div>
+
+            </div>
+
+
+            <div class="local-node">
+
+                <div class="node-avatar">
+                    D
+                </div>
+
+                <div>
+                    <strong>Local Node</strong>
+                    <small>This device</small>
+                </div>
+
+                <span class="node-arrow">›</span>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT — each page fills in "content" below
+    ====================================================== -->
+
+    <main class="content">
+
+        <!-- TOP BAR — also defined once -->
+        <header class="topbar">
+
+            <div class="search-box">
+
+                <span class="search-icon">⌕</span>
+
+                <input
+                    type="text"
+                    placeholder="Search files, devices, transfers..."
+                >
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <button class="topbar-button" title="Appearance">
+                    ☼
+                </button>
+
+                <button class="topbar-button" title="Notifications">
+                    ♢
+                </button>
+
+                <button class="profile-button">
+                    D
+                </button>
+
+            </div>
+
+        </header>
+
+        {% block content %}{% endblock %}
+
+    </main>
+
+</div>
+
+{% block scripts %}{% endblock %}
+
+</body>
+</html>

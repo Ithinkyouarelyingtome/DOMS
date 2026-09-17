@@ -1,421 +1,121 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block title %}Network{% endblock %}
 
-    <title>DOMS — Network</title>
+{% block content %}
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
-</head>
+    <section class="page-header">
+        <div>
+            <h1>Network</h1>
+            <p>DOMS mesh network status and connectivity</p>
+        </div>
+    </section>
 
-<body>
 
-<div class="app">
+    <section class="network-summary">
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-
-        <div class="brand">
-            <img
-                src="{{ url_for('static', filename='DOMS.png') }}"
-                alt="DOMS"
-                style="width:64px; height:42px; object-fit:contain;"
-            >
-
-            <div class="brand-text">
-                <strong>DOMS</strong>
-                <span>Distributed Storage</span>
-            </div>
+        <div class="summary-card">
+            <span>NETWORK STATUS</span>
+            <strong class="online-text">ONLINE</strong>
+            <small>All nodes operational</small>
         </div>
 
-
-        <nav class="navigation">
-
-            <a href="/" class="nav-button">
-                <span>⌂</span>
-                Dashboard
-            </a>
-
-            <a href="/storage" class="nav-button">
-                <span>□</span>
-                Storage
-            </a>
-
-            <a href="/devices" class="nav-button">
-                <span>▣</span>
-                Devices
-            </a>
-
-            <a href="/transfers" class="nav-button">
-                <span>↔</span>
-                Transfers
-            </a>
-
-            <a href="/network" class="nav-button active">
-                <span>◎</span>
-                Network
-            </a>
-
-            <a href="/settings" class="nav-button">
-                <span>⚙</span>
-                Settings
-            </a>
-        </nav>
-
-
-        <!-- SIDEBAR STATUS -->
-        <div class="sidebar-bottom">
-
-            <div class="system-status">
-                <span class="status-dot"></span>
-
-                <div>
-                    <strong>System Online</strong>
-                    <span>All nodes operational</span>
-                </div>
-            </div>
-
-
-            <div class="local-node">
-
-                <div class="node-avatar">
-                    D
-                </div>
-
-                <div>
-                    <strong>Local Node</strong>
-                    <span>This device</span>
-                </div>
-
-                <span class="node-arrow">›</span>
-
-            </div>
-
+        <div class="summary-card">
+            <span>CONNECTED NODES</span>
+            <strong>3</strong>
+            <small>Active mesh nodes</small>
         </div>
 
-    </aside>
+        <div class="summary-card">
+            <span>NETWORK LATENCY</span>
+            <strong>18 ms</strong>
+            <small>Average latency</small>
+        </div>
+
+        <div class="summary-card">
+            <span>ACTIVE CONNECTIONS</span>
+            <strong>3</strong>
+            <small>Current connections</small>
+        </div>
+
+    </section>
 
 
-    <!-- MAIN CONTENT -->
-    <main class="content">
+    <section class="panel">
 
-        <div class="page-header">
-
+        <div class="panel-header">
             <div>
-                <h1>Network</h1>
-                <p>DOMS mesh network status and connectivity</p>
+                <span class="panel-label">NETWORK</span>
+                <h2>Mesh Nodes</h2>
+            </div>
+            <span>3 ONLINE</span>
+        </div>
+
+        <div class="network-node">
+            <div class="node-indicator"></div>
+            <div class="node-info">
+                <strong>Node 01</strong>
+                <span>192.168.1.101</span>
+            </div>
+            <div class="node-metric"><span>LATENCY</span><strong>12 ms</strong></div>
+            <div class="node-metric"><span>CONNECTIONS</span><strong>2</strong></div>
+            <div class="node-status">ONLINE</div>
+        </div>
+
+        <div class="network-node">
+            <div class="node-indicator"></div>
+            <div class="node-info">
+                <strong>Node 02</strong>
+                <span>192.168.1.102</span>
+            </div>
+            <div class="node-metric"><span>LATENCY</span><strong>18 ms</strong></div>
+            <div class="node-metric"><span>CONNECTIONS</span><strong>2</strong></div>
+            <div class="node-status">ONLINE</div>
+        </div>
+
+        <div class="network-node">
+            <div class="node-indicator"></div>
+            <div class="node-info">
+                <strong>Node 03</strong>
+                <span>192.168.1.103</span>
+            </div>
+            <div class="node-metric"><span>LATENCY</span><strong>24 ms</strong></div>
+            <div class="node-metric"><span>CONNECTIONS</span><strong>2</strong></div>
+            <div class="node-status">ONLINE</div>
+        </div>
+
+    </section>
+
+
+    <section class="panel">
+
+        <div class="panel-header">
+            <div>
+                <span class="panel-label">ACTIVITY</span>
+                <h2>Network Activity</h2>
+            </div>
+            <span>LAST 24 HOURS</span>
+        </div>
+
+        <div class="activity-content">
+
+            <div class="activity-item">
+                <span>Data transferred</span>
+                <strong>8.4 GB</strong>
+            </div>
+
+            <div class="activity-item">
+                <span>Packets exchanged</span>
+                <strong>12,482</strong>
+            </div>
+
+            <div class="activity-item">
+                <span>Failed connections</span>
+                <strong>0</strong>
             </div>
 
         </div>
 
+    </section>
 
-        <!-- NETWORK SUMMARY -->
-        <div class="network-summary">
-
-            <div class="summary-card">
-
-                <span>NETWORK STATUS</span>
-
-                <strong class="online-text">
-                    ONLINE
-                </strong>
-
-                <small>
-                    All nodes operational
-                </small>
-
-            </div>
-
-
-            <div class="summary-card">
-
-                <span>CONNECTED NODES</span>
-
-                <strong>
-                    3
-                </strong>
-
-                <small>
-                    Active mesh nodes
-                </small>
-
-            </div>
-
-
-            <div class="summary-card">
-
-                <span>NETWORK LATENCY</span>
-
-                <strong>
-                    18 ms
-                </strong>
-
-                <small>
-                    Average latency
-                </small>
-
-            </div>
-
-
-            <div class="summary-card">
-
-                <span>ACTIVE CONNECTIONS</span>
-
-                <strong>
-                    3
-                </strong>
-
-                <small>
-                    Current connections
-                </small>
-
-            </div>
-
-        </div>
-
-
-        <!-- MESH NODES -->
-        <div class="panel">
-
-            <div class="panel-header">
-
-                <div>
-                    <span class="section-label">NETWORK</span>
-                    <h2>Mesh Nodes</h2>
-                </div>
-
-                <span>
-                    3 ONLINE
-                </span>
-
-            </div>
-
-
-            <!-- NODE 01 -->
-            <div class="network-node">
-
-                <div class="node-indicator"></div>
-
-
-                <div class="node-info">
-
-                    <strong>
-                        Node 01
-                    </strong>
-
-                    <span>
-                        192.168.1.101
-                    </span>
-
-                </div>
-
-
-                <div class="node-metric">
-
-                    <span>
-                        LATENCY
-                    </span>
-
-                    <strong>
-                        12 ms
-                    </strong>
-
-                </div>
-
-
-                <div class="node-metric">
-
-                    <span>
-                        CONNECTIONS
-                    </span>
-
-                    <strong>
-                        2
-                    </strong>
-
-                </div>
-
-
-                <div class="node-status">
-                    ONLINE
-                </div>
-
-            </div>
-
-
-            <!-- NODE 02 -->
-            <div class="network-node">
-
-                <div class="node-indicator"></div>
-
-
-                <div class="node-info">
-
-                    <strong>
-                        Node 02
-                    </strong>
-
-                    <span>
-                        192.168.1.102
-                    </span>
-
-                </div>
-
-
-                <div class="node-metric">
-
-                    <span>
-                        LATENCY
-                    </span>
-
-                    <strong>
-                        18 ms
-                    </strong>
-
-                </div>
-
-
-                <div class="node-metric">
-
-                    <span>
-                        CONNECTIONS
-                    </span>
-
-                    <strong>
-                        2
-                    </strong>
-
-                </div>
-
-
-                <div class="node-status">
-                    ONLINE
-                </div>
-
-            </div>
-
-
-            <!-- NODE 03 -->
-            <div class="network-node">
-
-                <div class="node-indicator"></div>
-
-
-                <div class="node-info">
-
-                    <strong>
-                        Node 03
-                    </strong>
-
-                    <span>
-                        192.168.1.103
-                    </span>
-
-                </div>
-
-
-                <div class="node-metric">
-
-                    <span>
-                        LATENCY
-                    </span>
-
-                    <strong>
-                        24 ms
-                    </strong>
-
-                </div>
-
-
-                <div class="node-metric">
-
-                    <span>
-                        CONNECTIONS
-                    </span>
-
-                    <strong>
-                        2
-                    </strong>
-
-                </div>
-
-
-                <div class="node-status">
-                    ONLINE
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- NETWORK ACTIVITY -->
-        <div class="panel">
-
-            <div class="panel-header">
-
-                <div>
-                    <span class="section-label">ACTIVITY</span>
-                    <h2>Network Activity</h2>
-                </div>
-
-                <span>
-                    LAST 24 HOURS
-                </span>
-
-            </div>
-
-
-            <div class="activity-content">
-
-                <div class="activity-item">
-
-                    <span>
-                        Data transferred
-                    </span>
-
-                    <strong>
-                        8.4 GB
-                    </strong>
-
-                </div>
-
-
-                <div class="activity-item">
-
-                    <span>
-                        Packets exchanged
-                    </span>
-
-                    <strong>
-                        12,482
-                    </strong>
-
-                </div>
-
-
-                <div class="activity-item">
-
-                    <span>
-                        Failed connections
-                    </span>
-
-                    <strong>
-                        0
-                    </strong>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </main>
-
-</div>
-
-</body>
-</html>
+{% endblock %}

@@ -1,305 +1,114 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block title %}Files{% endblock %}
 
-    <title>DOMS — Files</title>
+{% block content %}
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
-</head>
+    <!-- PAGE HEADER -->
+    <section class="page-header">
 
-<body>
-
-<div class="app">
-
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-
-        <div class="brand">
-            <img src="{{ url_for('static', filename='DOMS.png') }}"
-                 alt="DOMS">
-
-            <div>
-                <strong>DOMS</strong>
-                <span>Distributed Storage</span>
-            </div>
+        <div>
+            <span class="eyebrow">DISTRIBUTED STORAGE</span>
+            <h1>Your Files.</h1>
+            <p>Store and manage your files across the DOMS mesh.</p>
         </div>
 
+        <button class="primary-button">+ Upload File</button>
 
-        <nav class="navigation">
-
-            <a href="/" class="nav-button">
-                <span class="nav-icon">⌂</span>
-                Home
-            </a>
-
-            <a href="/storage" class="nav-button active">
-                <span class="nav-icon">□</span>
-                Files
-            </a>
-
-            <a href="/transfers" class="nav-button">
-                <span class="nav-icon">↔</span>
-                Transfers
-            </a>
-
-            <a href="/devices" class="nav-button">
-                <span class="nav-icon">▣</span>
-                Devices
-            </a>
-
-            <a href="/network" class="nav-button">
-                <span class="nav-icon">◎</span>
-                Network
-            </a>
-
-            <a href="/settings" class="nav-button">
-                <span class="nav-icon">⚙</span>
-                Settings
-            </a>
-
-        </nav>
+    </section>
 
 
-        <!-- SIDEBAR STATUS -->
-        <div class="sidebar-bottom">
+    <!-- STORAGE CARD -->
+    <section class="storage-card">
 
-            <div class="system-status">
-                <span class="status-dot"></span>
-
-                <div>
-                    <strong>System Online</strong>
-                    <span>All nodes operational</span>
-                </div>
+        <div class="storage-header">
+            <div>
+                <span class="card-label">STORAGE</span>
+                <h2>184 GB</h2>
+                <p>of 500 GB used</p>
             </div>
-
-
-            <div class="local-node">
-
-                <div class="node-avatar">
-                    D
-                </div>
-
-                <div>
-                    <strong>Local Node</strong>
-                    <span>This device</span>
-                </div>
-
-                <span class="node-arrow">›</span>
-
-            </div>
-
+            <strong>37%</strong>
         </div>
 
-    </aside>
+        <div class="storage-progress">
+            <div class="storage-progress-used"></div>
+        </div>
+
+        <div class="storage-details">
+            <span>316 GB available</span>
+            <span>3 nodes</span>
+        </div>
+
+    </section>
 
 
-    <!-- MAIN -->
-    <main class="content">
+    <!-- FILES -->
+    <section class="files-card">
 
-        <!-- TOP BAR -->
-        <header class="topbar">
-
-            <div class="search-box">
-                <span>⌕</span>
-                <input
-                    type="text"
-                    placeholder="Search files, devices, transfers..."
-                >
-            </div>
-
-            <div class="top-actions">
-                <button>☼</button>
-                <button>◊</button>
-                <div class="profile">D</div>
-            </div>
-
-        </header>
-
-
-        <!-- PAGE HEADER -->
-        <section class="page-header">
-
+        <div class="section-header">
             <div>
-                <span class="eyebrow">DISTRIBUTED STORAGE</span>
-
-                <h1>Your Files.</h1>
-
-                <p>
-                    Store and manage your files across the DOMS mesh.
-                </p>
+                <span class="card-label">YOUR FILES</span>
+                <h2>Files</h2>
             </div>
+            <span class="file-count">2 files</span>
+        </div>
 
-            <button class="primary-button">
-                + Upload File
-            </button>
+        <div class="file-table-header">
+            <span>Name</span>
+            <span>Size</span>
+            <span>Chunks</span>
+            <span>Status</span>
+        </div>
 
-        </section>
-
-
-        <!-- STORAGE CARD -->
-        <section class="storage-card">
-
-            <div class="storage-header">
-
+        <div class="file-item">
+            <div class="file-main">
+                <div class="file-icon pdf">PDF</div>
                 <div>
-                    <span class="card-label">STORAGE</span>
-
-                    <h2>184 GB</h2>
-
-                    <p>of 500 GB used</p>
+                    <strong>example.pdf</strong>
+                    <span>Distributed across mesh</span>
                 </div>
-
-                <strong>37%</strong>
-
             </div>
+            <span>42 MB</span>
+            <span>8 chunks</span>
+            <span class="ready">● Ready</span>
+        </div>
 
-
-            <div class="storage-progress">
-                <div class="storage-progress-used"></div>
-            </div>
-
-
-            <div class="storage-details">
-
-                <span>316 GB available</span>
-
-                <span>3 nodes</span>
-
-            </div>
-
-        </section>
-
-
-        <!-- FILES -->
-        <section class="files-card">
-
-            <div class="section-header">
-
+        <div class="file-item">
+            <div class="file-main">
+                <div class="file-icon image">IMG</div>
                 <div>
-                    <span class="card-label">YOUR FILES</span>
-                    <h2>Files</h2>
+                    <strong>photo.jpg</strong>
+                    <span>Distributed across mesh</span>
                 </div>
-
-                <span class="file-count">2 files</span>
-
             </div>
+            <span>12 MB</span>
+            <span>3 chunks</span>
+            <span class="ready">● Ready</span>
+        </div>
 
-
-            <!-- FILE HEADER -->
-            <div class="file-table-header">
-
-                <span>Name</span>
-                <span>Size</span>
-                <span>Chunks</span>
-                <span>Status</span>
-
+        <div class="upload-zone">
+            <div class="upload-icon">↑</div>
+            <div>
+                <strong>Add a file to DOMS</strong>
+                <span>Files will be distributed across your mesh.</span>
             </div>
+            <input type="file" id="fileInput">
+            <label for="fileInput" class="secondary-button">Choose File</label>
+        </div>
 
+    </section>
 
-            <!-- FILE 1 -->
-            <div class="file-item">
+{% endblock %}
 
-                <div class="file-main">
-
-                    <div class="file-icon pdf">
-                        PDF
-                    </div>
-
-                    <div>
-                        <strong>example.pdf</strong>
-                        <span>Distributed across mesh</span>
-                    </div>
-
-                </div>
-
-                <span>42 MB</span>
-
-                <span>8 chunks</span>
-
-                <span class="ready">
-                    ● Ready
-                </span>
-
-            </div>
-
-
-            <!-- FILE 2 -->
-            <div class="file-item">
-
-                <div class="file-main">
-
-                    <div class="file-icon image">
-                        IMG
-                    </div>
-
-                    <div>
-                        <strong>photo.jpg</strong>
-                        <span>Distributed across mesh</span>
-                    </div>
-
-                </div>
-
-                <span>12 MB</span>
-
-                <span>3 chunks</span>
-
-                <span class="ready">
-                    ● Ready
-                </span>
-
-            </div>
-
-
-            <!-- UPLOAD -->
-            <div class="upload-zone">
-
-                <div class="upload-icon">
-                    ↑
-                </div>
-
-                <div>
-                    <strong>Add a file to DOMS</strong>
-
-                    <span>
-                        Files will be distributed across your mesh.
-                    </span>
-                </div>
-
-                <input type="file" id="fileInput">
-
-                <label for="fileInput" class="secondary-button">
-                    Choose File
-                </label>
-
-            </div>
-
-        </section>
-
-    </main>
-
-</div>
-
-
+{% block scripts %}
 <script>
-
 function uploadFile() {
-
     const input = document.getElementById("fileInput");
-
     if (!input.files.length) {
         alert("Please choose a file.");
         return;
     }
-
     console.log("Selected file:", input.files[0].name);
-
 }
-
 </script>
-
-</body>
-</html>
+{% endblock %}

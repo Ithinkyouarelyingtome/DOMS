@@ -18,20 +18,14 @@
 
         <div class="summary-card">
             <span class="summary-label">CONNECTED</span>
-            <strong>3</strong>
+            <strong>{{ devices|length }}</strong>
             <p>Devices online</p>
         </div>
 
         <div class="summary-card">
-            <span class="summary-label">TOTAL STORAGE</span>
-            <strong>184 GB</strong>
-            <p>Across the mesh</p>
-        </div>
-
-        <div class="summary-card">
-            <span class="summary-label">NETWORK</span>
-            <strong>18 ms</strong>
-            <p>Average latency</p>
+            <span class="summary-label">DISCOVERY</span>
+            <strong>{{ "Live" if devices else "None found" }}</strong>
+            <p>Local network status</p>
         </div>
 
     </section>
@@ -44,55 +38,34 @@
                 <span class="eyebrow">MESH DEVICES</span>
                 <h2>Your devices</h2>
             </div>
-            <span class="section-count">3 online</span>
+            <span class="section-count">{{ devices|length }} online</span>
         </div>
 
         <div class="device-grid">
 
+            {% for host, port in devices %}
             <article class="device-card">
                 <div class="device-card-top">
                     <div class="device-icon">D</div>
                     <span class="online-badge"><i></i>Online</span>
                 </div>
-                <h3>Node 01</h3>
-                <p class="device-ip">192.168.1.101</p>
+                <h3>{{ host }}:{{ port }}</h3>
+                <p class="device-ip">{{ host }}</p>
                 <div class="device-metrics">
-                    <div><span>Storage</span><strong>62 GB</strong></div>
-                    <div><span>Chunks</span><strong>128</strong></div>
-                    <div><span>Latency</span><strong>12 ms</strong></div>
+                    <div><span>Port</span><strong>{{ port }}</strong></div>
+                    <div><span>Status</span><strong>Reachable</strong></div>
                 </div>
                 <button class="device-action">View device →</button>
             </article>
-
+            {% else %}
             <article class="device-card">
                 <div class="device-card-top">
-                    <div class="device-icon">D</div>
-                    <span class="online-badge"><i></i>Online</span>
+                    <div class="device-icon">—</div>
                 </div>
-                <h3>Node 02</h3>
-                <p class="device-ip">192.168.1.102</p>
-                <div class="device-metrics">
-                    <div><span>Storage</span><strong>71 GB</strong></div>
-                    <div><span>Chunks</span><strong>143</strong></div>
-                    <div><span>Latency</span><strong>18 ms</strong></div>
-                </div>
-                <button class="device-action">View device →</button>
+                <h3>No devices found</h3>
+                <p class="device-ip">Start a listener on another device to see it here</p>
             </article>
-
-            <article class="device-card">
-                <div class="device-card-top">
-                    <div class="device-icon">D</div>
-                    <span class="online-badge"><i></i>Online</span>
-                </div>
-                <h3>Node 03</h3>
-                <p class="device-ip">192.168.1.103</p>
-                <div class="device-metrics">
-                    <div><span>Storage</span><strong>51 GB</strong></div>
-                    <div><span>Chunks</span><strong>97</strong></div>
-                    <div><span>Latency</span><strong>24 ms</strong></div>
-                </div>
-                <button class="device-action">View device →</button>
-            </article>
+            {% endfor %}
 
             <article class="device-card connect-card">
                 <div class="connect-icon">+</div>

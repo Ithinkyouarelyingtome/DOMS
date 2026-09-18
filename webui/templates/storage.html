@@ -24,19 +24,18 @@
         <div class="storage-header">
             <div>
                 <span class="card-label">STORAGE</span>
-                <h2>184 GB</h2>
-                <p>of 500 GB used</p>
+                <h2>{{ used_mb }} MB</h2>
+                <p>of {{ quota_mb }} MB used</p>
             </div>
-            <strong>37%</strong>
+            <strong>{{ percent_used }}%</strong>
         </div>
 
         <div class="storage-progress">
-            <div class="storage-progress-used"></div>
+            <div class="storage-progress-used" style="width: {{ percent_used }}%;"></div>
         </div>
 
         <div class="storage-details">
-            <span>316 GB available</span>
-            <span>3 nodes</span>
+            <span>{{ quota_mb - used_mb }} MB available</span>
         </div>
 
     </section>
@@ -50,7 +49,7 @@
                 <span class="card-label">YOUR FILES</span>
                 <h2>Files</h2>
             </div>
-            <span class="file-count">2 files</span>
+            <span class="file-count">{{ files|length }} file{{ 's' if files|length != 1 else '' }}</span>
         </div>
 
         <div class="file-table-header">
@@ -60,31 +59,34 @@
             <span>Status</span>
         </div>
 
+        {% for file_id in files %}
         <div class="file-item">
             <div class="file-main">
-                <div class="file-icon pdf">PDF</div>
+                <div class="file-icon pdf">
+                    {{ file_id.split('.')[-1][:3].upper() if '.' in file_id else 'FILE' }}
+                </div>
                 <div>
-                    <strong>example.pdf</strong>
+                    <strong>{{ file_id }}</strong>
                     <span>Distributed across mesh</span>
                 </div>
             </div>
-            <span>42 MB</span>
-            <span>8 chunks</span>
+            <span>—</span>
+            <span>—</span>
             <span class="ready">● Ready</span>
         </div>
-
+        {% else %}
         <div class="file-item">
             <div class="file-main">
-                <div class="file-icon image">IMG</div>
                 <div>
-                    <strong>photo.jpg</strong>
-                    <span>Distributed across mesh</span>
+                    <strong>No files stored yet</strong>
+                    <span>Send a file to the mesh to see it here</span>
                 </div>
             </div>
-            <span>12 MB</span>
-            <span>3 chunks</span>
-            <span class="ready">● Ready</span>
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
+        {% endfor %}
 
         <div class="upload-zone">
             <div class="upload-icon">↑</div>

@@ -264,6 +264,3 @@ Goal
 DOMS aims to let nearby devices store, share, and retrieve files across
 a local mesh without depending on centralized cloud storage.
 
-Author
-
-Dakshin Salian
